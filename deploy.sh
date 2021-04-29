@@ -3,18 +3,18 @@ docker build -t arjunshah/multi-server:latest -t arjunshah/multi-server:$SHA -f 
 docker build -t arjunshah/multi-worker:latest -t arjunshah/multi-worker:$SHA -f ./worker/Dockerfile ./worker
 
 
-docker login -u arjunshah -p arjun@123
+docker login docker.io
 docker push arjunshah/multi-client:latest
-docker login -u arjunshah -p arjun@123
+docker login docker.io
 docker push arjunshah/multi-server:latest
-docker login -u arjunshah -p arjun@123
+docker login docker.io
 docker push arjunshah/multi-worker:latest
 
-docker login -u arjunshah -p arjun@123
+docker login docker.io
 docker push arjunshah/multi-client:$SHA
-docker login -u arjunshah -p arjun@123
+docker login docker.io
 docker push arjunshah/multi-server:$SHA
-docker login -u arjunshah -p arjun@123
+docker login docker.io
 docker push arjunshah/multi-worker:$SHA
 
 kubectl apply -f k8s
